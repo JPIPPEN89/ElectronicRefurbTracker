@@ -14,8 +14,10 @@ class LaptopDB(Database):
         conn = sqlite3.connect("refurb.db")
         c = conn.cursor()
         # Laptops table
+
+        c.execute('DROP TABLE IF EXISTS laptops')
         c.execute('''
-            CREATE TABLE IF NOT EXISTS laptops (
+            CREATE TABLE laptops (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 brand TEXT,
                 model TEXT,
@@ -34,45 +36,87 @@ class LaptopDB(Database):
         c.execute('''INSERT INTO laptops (brand, model, cost, quantity)
                 VALUES (?,?,?,?)    
         ''',(brand, model, cost, quantity))
+        conn.commit()
+        conn.close()
 
-    def mark_as_sold(self):
+    def mark_as_sold(self, laptop_id):
         conn = self.connect()
         c = conn.cursor()
-        c.execute('''UPDATE ''')
-        pass
+        c.execute('''
+                UPDATE laptops
+                SET sold = 1
+                WHERE id = ?
+            ''', (laptop_id))
+        conn.commit()
+        conn.close()
+
 
     def get_all_laptops(self):
-        pass
+        conn = self.connect()
+        c = conn.cursor()
+        c.execute("SELECT * FROM laptops")
+        rows = c.fetchall()
+        conn.close()
+
+        print('Laptops:')
+        for row in rows:
+            print(row)
 
 class PhonesDB(Database):
-    conn = sqlite3.connect("refurb.db")
-    c = conn.cursor()
 
-    # Phones table
-    c.execute('''
-        CREATE TABLE IF NOT EXISTS phones (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            brand TEXT,
-            model TEXT,
-            cost REAL,
-            quantity INTEGER,
-            purchase_date TEXT DEFAULT CURRENT_TIMESTAMP,
-            sold INTEGER DEFAULT 0
-        )
-    ''')
+    def create_table(self):
+        conn = sqlite3.connect("refurb.db")
+        c = conn.cursor()
 
-    conn.commit()
-    conn.close()
+        c.execute('DROP TABLE IF EXISTS phones')
+
+        # Phones table
+        c.execute('''
+            CREATE TABLE phones (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                brand TEXT,
+                model TEXT,
+                cost REAL,
+                quantity INTEGER,
+                purchase_date TEXT DEFAULT CURRENT_TIMESTAMP,
+                sold INTEGER DEFAULT 0
+            )
+        ''')
+
+        conn.commit()
+        conn.close()
 
 
-    def add_item(self):
-        pass
+    def add_item(self,brand, model, cost, quantity):
+        conn = self.connect()
+        c = conn.cursor()
+        c.execute('''INSERT INTO phones (brand, model, cost, quantity)
+                        VALUES (?,?,?,?)    
+                ''', (brand, model, cost, quantity))
+        conn.commit()
+        conn.close()
 
-    def mark_as_sold(self):
-        pass
+    def mark_as_sold(self, phone_id):
+        conn = sqlite3.connect("refurb.db")
+        c = conn.cursor()
 
-    def get_all_laptops(self):
-        pass
+        c.execute('''UPDATE phones
+                    SET sold = 1
+                    WHERE id = ?''',(phone_id))
+
+        conn.commit()
+        conn.close()
+
+    def get_all_phones(self):
+        conn = self.connect()
+        c = conn.cursor()
+        c.execute("SELECT * FROM phones")
+        rows = c.fetchall()
+        conn.close()
+
+        print('Phones:')
+        for row in rows:
+            print(row)
 
 
 class PartsDB(Database):
@@ -88,6 +132,7 @@ class PartsDB(Database):
             part_type TEXT,
             cost REAL,
             quantity INTEGER,
+            used_part INTEGER DEFAULT 0,
             purchase_date TEXT DEFAULT CURRENT_TIMESTAMP
         )
     ''')
@@ -95,12 +140,25 @@ class PartsDB(Database):
     conn.commit()
     conn.close()
 
-    def add_item(self):
-        pass
+    def add_item(self, brand, model, part_type, cost, quantity):
+        conn = self.connect()
+        c = conn.cursor()
+        c.execute('''INSERT INTO parts (brand, model, part_type, cost, quantity)
+                               VALUES (?,?,?,?,?)    
+                       ''', (brand, model, part_type, cost, quantity))
+        conn.commit()
+        conn.close()
 
-    def used_part(self):
-        pass
+    def used_part(self,part_id):
+        conn = sqlite3.connect("refurb.db")
+        c = conn.cursor()
 
+        c.execute('''UPDATE phones
+                    SET used_part = 1
+                    WHERE id = ?''',(part_id))
+
+        conn.commit()
+        conn.close()
 
 class ToolsDB(Database):
     conn = sqlite3.connect("refurb.db")
@@ -120,8 +178,15 @@ class ToolsDB(Database):
     conn.commit()
     conn.close()
 
-    def add_item(self):
-        pass
+    def add_item(self,name, cost, quantity):
+        conn = sqlite3.connect("refurb.db")
+        c = conn.cursor()
+
+        c.execute('''INSERT INTO tools(name, cost, quantity),
+                    VALUES (?,?,?)''',(name, cost, quantity))
+
+        conn.commit()
+        conn.close()
 
 class SalesDB(Database):
     def create_table(self):
