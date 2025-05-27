@@ -15,9 +15,9 @@ class LaptopDB(Database):
         c = conn.cursor()
         # Laptops table
 
-        c.execute('DROP TABLE IF EXISTS laptops')
+
         c.execute('''
-            CREATE TABLE laptops (
+            CREATE TABLE IF NOT EXISTS laptops (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 brand TEXT,
                 model TEXT,
@@ -68,15 +68,14 @@ class PhonesDB(Database):
         conn = sqlite3.connect("refurb.db")
         c = conn.cursor()
 
-        c.execute('DROP TABLE IF EXISTS phones')
-
         # Phones table
         c.execute('''
-            CREATE TABLE phones (
+            CREATE TABLE IF NOT EXISTS phones (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 brand TEXT,
                 model TEXT,
                 cost REAL,
+                diagnosis TEXT,
                 quantity INTEGER,
                 purchase_date TEXT DEFAULT CURRENT_TIMESTAMP,
                 sold INTEGER DEFAULT 0
@@ -87,36 +86,7 @@ class PhonesDB(Database):
         conn.close()
 
 
-    def add_item(self,brand, model, cost, quantity):
-        conn = self.connect()
-        c = conn.cursor()
-        c.execute('''INSERT INTO phones (brand, model, cost, quantity)
-                        VALUES (?,?,?,?)    
-                ''', (brand, model, cost, quantity))
-        conn.commit()
-        conn.close()
 
-    def mark_as_sold(self, phone_id):
-        conn = sqlite3.connect("refurb.db")
-        c = conn.cursor()
-
-        c.execute('''UPDATE phones
-                    SET sold = 1
-                    WHERE id = ?''',(phone_id))
-
-        conn.commit()
-        conn.close()
-
-    def get_all_phones(self):
-        conn = self.connect()
-        c = conn.cursor()
-        c.execute("SELECT * FROM phones")
-        rows = c.fetchall()
-        conn.close()
-
-        print('Phones:')
-        for row in rows:
-            print(row)
 
 
 class PartsDB(Database):
