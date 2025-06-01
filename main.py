@@ -6,6 +6,17 @@ from database import Database, LaptopDB, PhonesDB
 #from AddView import Add_View
 import Main_Controller as mc
 
+########################### NOTES ######################################################
+########################################################################################
+#### Quantity needs added to each Entry ################################################ DONE----------
+#### Create Mark as sold and Parts used Functionality ##################################
+#### CREATE Delete and update functionality ############################################
+#### Create Profit Tracker Functionality ###############################################
+#### Create better ID system ###########################################################
+#### Add ALL ITEMS functionality #######################################################
+#### REFACTOR CODE #####################################################################
+########################################################################################
+
 # Initialize main window
 root = Tk()
 root.geometry("600x800")

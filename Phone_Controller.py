@@ -8,14 +8,15 @@ class Phone_Controller:
     def __init__(self):
         db.PhonesDB().create_table()  # Added () to instantiate the class
 
-    def add_item(self, brand, model, cost, quantity, diagnosis):
+    def add_item(self, brand, model, cost, quantity, bad_parts):
         conn = db.Database().connect()
         c = conn.cursor()
-        c.execute('''INSERT INTO phones (brand, model, cost, quantity, diagnosis)
-                     VALUES (?, ?, ?, ?,?)''', (brand, model, cost, quantity, diagnosis))
+        c.execute('''INSERT INTO phones (brand, model, cost, quantity, bad_parts)
+                     VALUES (?, ?, ?, ?,?)''', (brand, model, cost, quantity, bad_parts))
         conn.commit()
         conn.close()
 
+    #####NEEDS FUNCTIONALITY FOR SOLD#############
     def mark_as_sold(self, phone_id):
         conn = db.Database().connect()
         c = conn.cursor()
@@ -33,3 +34,6 @@ class Phone_Controller:
         conn.close()
 
         return rows
+
+    def delete(self):
+        pass

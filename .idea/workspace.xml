@@ -4,19 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="997f9587-dc75-4d1c-a298-751b0eca7356" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/ElectronicRefurbTracker.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AddController.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AddView.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Main_Controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Main_View.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Parts.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    <list default="true" id="997f9587-dc75-4d1c-a298-751b0eca7356" name="Changes" comment="Finished first version of AddItem for phonesDB">
+      <change afterPath="$PROJECT_DIR$/Laptop_Controller.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Laptop_View.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tools_View.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AddController.py" beforeDir="false" afterPath="$PROJECT_DIR$/Parts_View.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AddView.py" beforeDir="false" afterPath="$PROJECT_DIR$/Parts_Controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_Controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Parts.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tools_Controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Phone_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Phone_Controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Phones_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Phones_View.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,9 +26,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;JPIPPEN89&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/JPIPPEN89/ElectronicRefurbTracker.git&quot;,
+    &quot;accountId&quot;: &quot;c0088cd9-c610-4601-8b61-3f82bc2c717f&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2wltmFSpcnCqMvRtG0YghQMDKQu" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -37,12 +49,19 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.Phones_View.executor": "Run",
+    "Python.database.executor": "Run",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master"
+    "git-widget-placeholder": "main"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\JOSHP\PycharmProjects\ElectronicRefurbTracker" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -58,6 +77,28 @@
       <option name="presentableId" value="Default" />
       <updated>1746628144582</updated>
     </task>
+    <task id="LOCAL-00001" summary="Starting my application for tracking my expenses">
+      <option name="closed" value="true" />
+      <created>1746650683354</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1746650683354</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Finished first version of AddItem for phonesDB">
+      <option name="closed" value="true" />
+      <created>1748355370811</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1748355370811</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Starting my application for tracking my expenses" />
+    <MESSAGE value="Finished first version of AddItem for phonesDB" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished first version of AddItem for phonesDB" />
   </component>
 </project>
