@@ -2,7 +2,7 @@ from database import LaptopDB, SalesDB, PhonesDB, PartsDB
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk
-import Main_Controller as mc
+import main_controller as mc
 import Laptop_Controller as lc
 
 
@@ -113,11 +113,4 @@ class Laptop_View(Toplevel):
             formatted = f"{id:<3} {brand:<10} {model:<20} ${cost:<6.2f} {quantity:<8} {parts_used:<25} {sold:<5} {purchase_date}\n"
             self.tboxData.insert(tk.END, formatted)
 
-    # def getFile(self):
-    #     fileName = filedialog.askopenfile(title="", filetypes=(("CSV Files", "*.csv"), ("All Files", "*.*")))
-    #     row_count = self.controller.load(fileName)
-    #     self.lblStatus.config(text="Students Loaded: " + str(row_count))
-    #     self.updateDisplay()
 
-    def Choose_Sold(self):
-        pass

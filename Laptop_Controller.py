@@ -4,6 +4,7 @@ from tkinter import *
 from tkinter import ttk
 import Laptop_View as lv
 
+
 class LaptopController:
     def __init__(self):
         db.LaptopDB().create_table()
@@ -27,6 +28,8 @@ class LaptopController:
                ''', (laptop_id))
         conn.commit()
         conn.close()
+
+
 
     def get_all_laptops(self):
         conn = db.Database().connect()

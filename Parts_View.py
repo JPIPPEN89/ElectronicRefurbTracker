@@ -2,7 +2,7 @@ from database import LaptopDB, SalesDB, PhonesDB, PartsDB
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk
-import Main_Controller as mc
+import main_controller as mc
 import Parts_Controller as pc
 
 

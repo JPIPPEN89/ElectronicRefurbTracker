@@ -112,13 +112,17 @@ class SalesDB(Database):
         conn = self.connect()
         c = conn.cursor()
 
+        c.execute('DROP TABLE IF EXISTS sales')
+
         c.execute('''
-            CREATE TABLE IF NOT EXISTS sales (
+            CREATE TABLE  sales (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 item_type TEXT NOT NULL,       -- 'laptop' or 'phone'
-                item_id INTEGER NOT NULL,
+                item_brand TEXT NOT NULL,
+                item_model TEXT NOT NULL,
+                -- item_id INTEGER NOT NULL,
                 sold_for REAL NOT NULL,
-                parts_used TEXT,               -- (simplified for now)
+                parts_used INTEGER DEFAULT 0,               -- (simplified for now)
                 total_cost REAL NOT NULL,
                 total_profit REAL NOT NULL,
                 quantity INTEGER,
@@ -129,18 +133,3 @@ class SalesDB(Database):
         conn.commit()
         conn.close()
 
-    def add_sale(self, item_type, item_id, sold_for, parts_used_list, base_cost, parts_cost):
-        total_cost = base_cost + parts_cost
-        profit = sold_for - total_cost
-        parts_used = ", ".join(parts_used_list)  # store part names for now
-
-        conn = self.connect()
-        c = conn.cursor()
-
-        c.execute('''
-            INSERT INTO sales (item_type, item_id, sold_for, parts_used, total_cost, total_profit)
-            VALUES (?, ?, ?, ?, ?, ?)
-        ''', (item_type, item_id, sold_for, parts_used, total_cost, profit))
-
-        conn.commit()
-        conn.close()

@@ -26,6 +26,13 @@ class Phone_Controller:
         conn.commit()
         conn.close()
 
+        type = 'Phone'
+        c.execute('''SELECT * FROM phones WHERE id = ?''', (phone_id,))
+        result = c.fetchone()
+
+        return type, result
+
+
     def get_all_phones(self):
         conn = db.Database().connect()
         c = conn.cursor()
