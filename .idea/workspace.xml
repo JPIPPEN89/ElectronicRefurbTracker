@@ -4,22 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="997f9587-dc75-4d1c-a298-751b0eca7356" name="Changes" comment="Finished the add_item and get() funtionality on most buttons">
-      <change afterPath="$PROJECT_DIR$/Mark_As_Sold_Controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mark_As_Sold_View.py" afterDir="false" />
+    <list default="true" id="997f9587-dc75-4d1c-a298-751b0eca7356" name="Changes" comment="Working on the mark_as_sold functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Laptop_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Laptop_Controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Laptop_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Laptop_View.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mark_As_Sold_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mark_As_Sold_Controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mark_As_Sold_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mark_As_Sold_View.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Parts_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Parts_Controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Parts_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Parts_View.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Phone_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Phone_Controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Phones_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Phones_View.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sold_Controller.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sold_View.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tools_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tools_Controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tools_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tools_View.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_controller.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,13 +103,22 @@
       <option name="project" value="LOCAL" />
       <updated>1748783878282</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Working on the mark_as_sold functionality">
+      <option name="closed" value="true" />
+      <created>1749398914705</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1749398914705</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Starting my application for tracking my expenses" />
     <MESSAGE value="Finished first version of AddItem for phonesDB" />
     <MESSAGE value="Finished the add_item and get() funtionality on most buttons" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished the add_item and get() funtionality on most buttons" />
+    <MESSAGE value="Working on the mark_as_sold functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on the mark_as_sold functionality" />
   </component>
 </project>

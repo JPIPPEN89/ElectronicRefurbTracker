@@ -112,17 +112,17 @@ class SalesDB(Database):
         conn = self.connect()
         c = conn.cursor()
 
-        c.execute('DROP TABLE IF EXISTS sales')
 
         c.execute('''
-            CREATE TABLE  sales (
+            CREATE TABLE IF NOT EXISTS sales (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 item_type TEXT NOT NULL,       -- 'laptop' or 'phone'
                 item_brand TEXT NOT NULL,
                 item_model TEXT NOT NULL,
                 -- item_id INTEGER NOT NULL,
                 sold_for REAL NOT NULL,
-                parts_used INTEGER DEFAULT 0,               -- (simplified for now)
+                parts_used INTEGER DEFAULT 0, -- (simplified for now)
+                parts_cost REAL DEFAULT 0,   -- (simplified for now)
                 total_cost REAL NOT NULL,
                 total_profit REAL NOT NULL,
                 quantity INTEGER,

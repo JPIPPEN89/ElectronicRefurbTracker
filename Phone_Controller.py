@@ -4,6 +4,7 @@ import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 
+
 class Phone_Controller:
     def __init__(self):
         db.PhonesDB().create_table()  # Added () to instantiate the class
@@ -26,11 +27,18 @@ class Phone_Controller:
         conn.commit()
         conn.close()
 
+
+    def phone_sold_info(self, phone_id):
+        conn = db.Database().connect()
+        c = conn.cursor()
+
         type = 'Phone'
         c.execute('''SELECT * FROM phones WHERE id = ?''', (phone_id,))
         result = c.fetchone()
+        conn.close()
 
         return type, result
+
 
 
     def get_all_phones(self):

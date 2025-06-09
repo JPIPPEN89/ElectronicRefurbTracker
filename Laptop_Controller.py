@@ -5,6 +5,7 @@ from tkinter import ttk
 import Laptop_View as lv
 
 
+
 class LaptopController:
     def __init__(self):
         db.LaptopDB().create_table()
@@ -27,8 +28,23 @@ class LaptopController:
                    WHERE id = ?
                ''', (laptop_id))
         conn.commit()
+
         conn.close()
 
+
+
+    def laptop_sold_info(self, laptop_id):
+        conn = db.Database().connect()
+        c = conn.cursor()
+
+        type = 'Laptop'
+        c.execute('''SELECT * FROM phones WHERE id = ?''', (laptop_id,))
+        result = c.fetchone()
+        conn.close()
+
+        id, brand, model, cost, parts_used, quantity, purchase_date, sold = result
+
+        return result
 
 
     def get_all_laptops(self):

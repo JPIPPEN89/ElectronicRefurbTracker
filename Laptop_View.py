@@ -4,11 +4,16 @@ from tkinter import *
 from tkinter import ttk
 import main_controller as mc
 import Laptop_Controller as lc
+import Mark_As_Sold_Controller as masc
+import Mark_As_Sold_View as masv
 
 
 class Laptop_View(Toplevel):
+
+
     def __init__(self, rootWindow):
         Toplevel.__init__(self)
+        item_type = "Laptop"
         self.controller = lc.LaptopController()
 
         self.title("Laptops")
@@ -63,7 +68,9 @@ class Laptop_View(Toplevel):
         # Mark as sold button
         self.btnSold = ttk.Button(frameRight, text="Mark as Sold",
                                   command=lambda: [
-                                      self.controller.mark_as_sold(self.entID.get()), self.updateDisplay()])
+                                      self.controller.mark_as_sold(self.entID.get()),
+                                      masv.Sold_View(Toplevel, item_type, self.controller.laptop_sold_info(self.entID.get())),
+                                  ])
 
         self.btnSold.grid(row=7, column=1, padx=10, pady=10)
 

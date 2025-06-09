@@ -8,6 +8,7 @@ import Parts_View as pav
 import Tools_View as tv
 
 
+
 def handle_category_selection(category, frame):
         # Clear previous menu widgets
         print("HANDLE FUNCTION CALLED:", category)

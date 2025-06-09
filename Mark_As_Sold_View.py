@@ -4,13 +4,18 @@ from tkinter import *
 from tkinter import ttk
 import main_controller as mc
 import Mark_As_Sold_Controller as sc
-from main import options
 import Parts_Controller as pc
 
 
 
+
+
 class Sold_View(Toplevel):
-    def __init__(self, rootWindow):
+    def __init__(self, rootWindow, item_type, result):
+
+        self.item_type = item_type
+        id, brand, model, cost, parts_used, quantity, purchase_date, sold = result
+
         Toplevel.__init__(self)
         self.controller = sc.Sold_Controller()
 
@@ -31,7 +36,7 @@ class Sold_View(Toplevel):
         self.entSoldFor = ttk.Entry(frameRight, font=('Helvetica', 12), width=20)
         self.entSoldFor.grid(row=1, column=1, padx=10,pady=10)
 
-        self.lblPartsUsed = ttk.Label(frameRight, text="Parts Used (Ent ID):").grid(row=1, column=0, padx=10, pady=10)
+        self.lblPartsUsed = ttk.Label(frameRight, text="Parts Used (Ent ID):").grid(row=2, column=0, padx=10, pady=10)
         self.entPartsUsed = ttk.Entry(frameRight, font=('Helvetica', 12), width=20)
         self.entPartsUsed.grid(row=2, column=1, padx=10, pady=10)
 
@@ -44,37 +49,20 @@ class Sold_View(Toplevel):
         # Mark as sold button
         self.btnSold = ttk.Button(frameRight, text="Done",
                                   command=lambda: [
-                                      self.controller.mark_as_sold(self.entID.get()), self.updateDisplay()])
+                                      self.controller.add_sale(item_type, brand, model,
+                                                               self.entSoldFor.get(), sc.Sold_Controller().part_type(self.entPartsUsed.get()),
+                                                               sc.Sold_Controller().parts_to_cost(self.entPartsUsed.get())
+                                                               , quantity, cost), self.updateDisplay()])
 
         self.btnSold.grid(row=7, column=1, padx=10, pady=10)
 
-        # Display all phones button
-        # self.btnDisplay = ttk.Button(frameRight, text="Display All Sold", command=self.updateDisplay)
-        # self.btnDisplay.grid(row=8, column=0, padx=10, pady=10)
+
 
         # Clear the data button
         self.btnClear = ttk.Button(frameRight, text="Clear the Data",
                                    command=lambda: [self.tboxData.delete("1.0", tk.END)])
         self.btnClear.grid(row=8, column=1, padx=10, pady=1)
 
-        # self.lblInstruction = ttk.Label(frameRight, text="Enter ID above to delete or search")
-        # self.lblInstruction.grid(row=10, column=0, columnspan=2, padx=0, pady=0)
-        #
-        # # Delete Button NEEDS FUNCTIONALITY
-        # self.btnDelete = ttk.Button(frameRight, text="Delete",
-        #                             command=lambda: [
-        #                                 self.controller.delete(self.entID.get()),
-        #                                 self.updateDisplay()])
-        # self.btnDelete.grid(row=11, column=0, pady=10, padx=10)
-        #
-        # # Search Button NEEDS FUNCTIONALITY
-        # self.btnSearch = ttk.Button(frameRight, text="Search",
-        #                             command=lambda: [
-        #                                 self.tboxData.delete("1.0", tk.END),
-        #                                 self.tboxData.insert(INSERT, self.controller.search(self.entSSN.get()))
-        #                             ])
-        # self.btnSearch.grid(row=11, column=1, padx=10, pady=10)
-        # # View Methods
 
     def updateDisplay(self):
         self.tboxData.delete("1.0", tk.END)

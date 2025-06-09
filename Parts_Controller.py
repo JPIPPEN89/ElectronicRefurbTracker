@@ -5,6 +5,7 @@ from tkinter import *
 from tkinter import ttk
 import main_controller as mc
 
+
 class Parts_Controller:
     def __init__(self):
         db.PartsDB().create_table()
