@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="997f9587-dc75-4d1c-a298-751b0eca7356" name="Changes" comment="Working on the mark_as_sold functionality">
+    <list default="true" id="997f9587-dc75-4d1c-a298-751b0eca7356" name="Changes" comment="still working out bugs for mark_as_sold function.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Laptop_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Laptop_Controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Laptop_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Laptop_View.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Mark_As_Sold_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mark_As_Sold_Controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Mark_As_Sold_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mark_As_Sold_View.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Parts_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Parts_Controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Phone_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Phone_Controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Phones_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Phones_View.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tools_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tools_Controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tools_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tools_View.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_controller.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +108,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749398914705</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="still working out bugs for mark_as_sold function.">
+      <option name="closed" value="true" />
+      <created>1749435643568</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1749435643568</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -119,6 +124,7 @@
     <MESSAGE value="Finished first version of AddItem for phonesDB" />
     <MESSAGE value="Finished the add_item and get() funtionality on most buttons" />
     <MESSAGE value="Working on the mark_as_sold functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working on the mark_as_sold functionality" />
+    <MESSAGE value="still working out bugs for mark_as_sold function." />
+    <option name="LAST_COMMIT_MESSAGE" value="still working out bugs for mark_as_sold function." />
   </component>
 </project>

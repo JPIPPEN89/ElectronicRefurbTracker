@@ -27,7 +27,7 @@ class Phone_Controller:
         conn.commit()
         conn.close()
 
-
+################FIXING#####################
     def phone_sold_info(self, phone_id):
         conn = db.Database().connect()
         c = conn.cursor()
@@ -37,7 +37,9 @@ class Phone_Controller:
         result = c.fetchone()
         conn.close()
 
-        return type, result
+        id, brand, model, cost, parts_used, quantity, purchase_date, sold = result
+
+        return result
 
 
 

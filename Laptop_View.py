@@ -69,7 +69,7 @@ class Laptop_View(Toplevel):
         self.btnSold = ttk.Button(frameRight, text="Mark as Sold",
                                   command=lambda: [
                                       self.controller.mark_as_sold(self.entID.get()),
-                                      masv.Sold_View(Toplevel, item_type, self.controller.laptop_sold_info(self.entID.get())),
+                                      masv.Mark_As_Sold_View(Toplevel, item_type, self.controller.laptop_sold_info(self.entID.get())),
                                   ])
 
         self.btnSold.grid(row=7, column=1, padx=10, pady=10)
@@ -117,7 +117,7 @@ class Laptop_View(Toplevel):
 
         for row in rows:
             id, brand, model, cost, parts_used, quantity, purchase_date, sold = row
-            formatted = f"{id:<3} {brand:<10} {model:<20} ${cost:<6.2f} {quantity:<8} {parts_used:<25} {sold:<5} {purchase_date}\n"
+            formatted = f"{id:<3} {brand:<10} {model:<20} ${cost:<6.2f} {parts_used:<25} {quantity:<8} {purchase_date} {sold:<5}\n"
             self.tboxData.insert(tk.END, formatted)
 
 

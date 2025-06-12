@@ -34,21 +34,21 @@ class Sold_Controller:
         conn = db.Database().connect()
         c = conn.cursor()
 
-        c.execute('''SELECT model FROM parts WHERE id = ?''', (id,))
+        c.execute('''SELECT part_type FROM parts WHERE id = ?''', (id,))
 
         part = c.fetchone()
         if part:
             pc.Parts_Controller().used_part(id)
-            return part[0]
+            return str(part)
         else:
             return "Part not found"
 
-    #Connect to db to get base_cost, brand, model, item_type CALL PART_TYPE IN VIEW
+    #Connect to db to get base_cost, brand, model, item_type
     def add_sale(self, item_type, brand, model, sold_for, parts_used, parts_cost, quantity, entCost):
 
         total_cost = entCost + parts_cost
         profit = float(sold_for) - total_cost
-        parts_used = ", ".join(parts_used)  # store part names for now
+        parts_used = parts_used  # store part names for now
 
         conn = db.Database().connect()
         c = conn.cursor()

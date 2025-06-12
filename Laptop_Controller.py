@@ -38,7 +38,7 @@ class LaptopController:
         c = conn.cursor()
 
         type = 'Laptop'
-        c.execute('''SELECT * FROM phones WHERE id = ?''', (laptop_id,))
+        c.execute('''SELECT * FROM laptops WHERE id = ?''', (laptop_id,))
         result = c.fetchone()
         conn.close()
 

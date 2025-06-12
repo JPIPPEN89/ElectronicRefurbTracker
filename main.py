@@ -10,11 +10,13 @@ import main_controller as mc
 ########################### NOTES ######################################################
 ########################################################################################
 #### Quantity needs added to each Entry ################################################ DONE----------
-#### Create Mark as sold and Parts used Functionality ##################################
+#### Create Mark as sold and Parts used Functionality ################################## WORKING -- NEEDS TWEAKING WHEN REFACTORING
 #### CREATE Delete and update functionality ############################################
 #### Create Profit Tracker Functionality ###############################################
+#### Create Sold Items View ############################################################
 #### Create better ID system ###########################################################
 #### Add ALL ITEMS functionality #######################################################
+#### EXCEPTION HANDLING ################################################################
 #### REFACTOR CODE #####################################################################
 ########################################################################################
 
@@ -37,7 +39,7 @@ selected_option = StringVar()
 selected_option.set("Select an Option")  # Default value
 
 #, 'All Items', 'Profit Report'
-options = ['Phones', 'Laptops', 'Parts', 'Tools']
+options = ['Phones', 'Laptops', 'Parts', 'Tools', 'Sold Items', 'Profit Report']
 dropdown = OptionMenu(main_frame, selected_option, *options)
 dropdown.grid(row=0, column=1, padx=10, pady=10, sticky=W)
 

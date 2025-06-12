@@ -10,7 +10,7 @@ import Parts_Controller as pc
 
 
 
-class Sold_View(Toplevel):
+class Mark_As_Sold_View(Toplevel):
     def __init__(self, rootWindow, item_type, result):
 
         self.item_type = item_type
@@ -62,6 +62,10 @@ class Sold_View(Toplevel):
         self.btnClear = ttk.Button(frameRight, text="Clear the Data",
                                    command=lambda: [self.tboxData.delete("1.0", tk.END)])
         self.btnClear.grid(row=8, column=1, padx=10, pady=1)
+
+        # Display all sold items button
+        self.btnDisplay = ttk.Button(frameRight, text="Display All Sold", command=self.updateDisplay)
+        self.btnDisplay.grid(row=8, column=0, padx=10, pady=10)
 
 
     def updateDisplay(self):

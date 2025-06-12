@@ -4,12 +4,16 @@ from tkinter import *
 from tkinter import ttk
 import main_controller as mc
 import Phone_Controller as pc
+import Mark_As_Sold_Controller as masc
+import Mark_As_Sold_View as masv
 
 
 class Phone_View(Toplevel):
     def __init__(self, rootWindow):
         Toplevel.__init__(self)
         self.controller = pc.Phone_Controller()
+
+
 
         self.title("Phones")
         self.geometry("900x800")
@@ -60,11 +64,13 @@ class Phone_View(Toplevel):
                                     ])
         self.btnAdd.grid(row=7, column=0, padx=10, pady=10)
 
-
+        item_type = "Phone"
         #Mark as sold button
         self.btnSold = ttk.Button(frameRight, text="Mark as Sold",
                                      command=lambda: [
-                                         self.controller.mark_as_sold(self.entID.get()), self.updateDisplay()])
+                                         self.controller.mark_as_sold(self.entID.get()),
+                                         masv.Mark_As_Sold_View(Toplevel, item_type,
+                                                                self.controller.phone_sold_info(self.entID.get()))])
 
         self.btnSold.grid(row=7, column=1, padx=10, pady=10)
 
