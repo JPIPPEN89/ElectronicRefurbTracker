@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="997f9587-dc75-4d1c-a298-751b0eca7356" name="Changes" comment="still working out bugs for mark_as_sold function.">
+    <list default="true" id="997f9587-dc75-4d1c-a298-751b0eca7356" name="Changes" comment="Mark_As_Sold is working, will need to come back and tweak it when refactoring the code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Laptop_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Laptop_Controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Laptop_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Laptop_View.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Mark_As_Sold_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mark_As_Sold_Controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Mark_As_Sold_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mark_As_Sold_View.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Parts_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Parts_Controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Phone_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Phone_Controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Phones_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Phones_View.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profit_Report_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Profit_Report_Controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Profit_Report_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Profit_Report_View.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tools_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tools_Controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_controller.py" afterDir="false" />
     </list>
@@ -116,7 +119,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749435643568</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Mark_As_Sold is working, will need to come back and tweak it when refactoring the code">
+      <option name="closed" value="true" />
+      <created>1749732648807</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1749732648807</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -125,6 +136,7 @@
     <MESSAGE value="Finished the add_item and get() funtionality on most buttons" />
     <MESSAGE value="Working on the mark_as_sold functionality" />
     <MESSAGE value="still working out bugs for mark_as_sold function." />
-    <option name="LAST_COMMIT_MESSAGE" value="still working out bugs for mark_as_sold function." />
+    <MESSAGE value="Mark_As_Sold is working, will need to come back and tweak it when refactoring the code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mark_As_Sold is working, will need to come back and tweak it when refactoring the code" />
   </component>
 </project>

@@ -28,3 +28,12 @@ class Tools_Controller:
         conn.close()
 
         return rows
+
+    def tools_cost(self):
+        conn = db.Database().connect()
+        c = conn.cursor()
+        c.execute("SELECT SUM(cost) FROM tools")
+        total_cost = c.fetchone()[0]
+
+        conn.close()
+        return total_cost

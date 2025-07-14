@@ -7,6 +7,7 @@ import Laptop_View as lv
 import Parts_View as pav
 import Tools_View as tv
 import Mark_As_Sold_View as sv
+import Profit_Report_View as prv
 
 
 
@@ -28,7 +29,11 @@ def handle_category_selection(category, frame):
         elif category == 'Tools':
             print("Tools Open")
             tv.Tools_View(Toplevel)
-        elif category == 'Sold Items':
-            sv.Sold_View(Toplevel)
+       #elif category == 'Sold Items':
+           # sv.Sold_View(Toplevel)
+        elif category == 'Profit Report':
+            print("Profit Report Open")
+            prv.Profit_Report_View(Toplevel)
+
 
 

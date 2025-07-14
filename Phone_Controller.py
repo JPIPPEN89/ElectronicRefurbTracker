@@ -12,8 +12,8 @@ class Phone_Controller:
     def add_item(self, brand, model, cost, quantity, bad_parts):
         conn = db.Database().connect()
         c = conn.cursor()
-        c.execute('''INSERT INTO phones (brand, model, cost, quantity, bad_parts)
-                     VALUES (?, ?, ?, ?,?)''', (brand, model, cost, quantity, bad_parts))
+        c.execute('''INSERT INTO phones (brand, model, cost, bad_parts, quantity)
+                     VALUES (?, ?, ?, ?,?)''', (brand, model, cost, bad_parts, quantity))
         conn.commit()
         conn.close()
 
@@ -54,3 +54,12 @@ class Phone_Controller:
 
     def delete(self):
         pass
+
+    def phone_cost(self):
+        conn = db.Database().connect()
+        c = conn.cursor()
+        c.execute("SELECT SUM(cost) FROM phones")
+        total_cost = c.fetchone()[0]
+        conn.close()
+
+        return total_cost

@@ -39,3 +39,12 @@ class Parts_Controller:
         conn.close()
 
         return rows
+
+    def parts_cost(self):
+        conn = db.Database().connect()
+        c = conn.cursor()
+        c.execute("SELECT SUM(cost) FROM parts")
+        total_cost = c.fetchone()[0]
+
+        conn.close()
+        return total_cost

@@ -41,7 +41,7 @@ class Sold_Controller:
             pc.Parts_Controller().used_part(id)
             return str(part)
         else:
-            return "Part not found"
+            return "None"
 
     #Connect to db to get base_cost, brand, model, item_type
     def add_sale(self, item_type, brand, model, sold_for, parts_used, parts_cost, quantity, entCost):
@@ -70,3 +70,43 @@ class Sold_Controller:
         conn.close()
 
         return rows
+
+    def sold_total(self):
+        conn = db.Database().connect()
+        c = conn.cursor()
+
+        c.execute("SELECT SUM(sold_for) FROM sales")
+        total = c.fetchone()[0]
+        conn.close()
+
+        return total
+
+    def laptop_sold_total(self):
+        conn = db.Database().connect()
+        c = conn.cursor()
+
+        c.execute("SELECT SUM(sold_for) FROM sales WHERE item_type = 'Laptop'")
+        total = c.fetchone()[0]
+        conn.close()
+
+        return total if total is not None else 0
+
+    def phone_sold_total(self):
+        conn = db.Database().connect()
+        c = conn.cursor()
+
+        c.execute("SELECT SUM(sold_for) FROM sales WHERE item_type = 'Phone'")
+        total = c.fetchone()[0]
+        conn.close()
+
+        return total if total is not None else 0
+
+    def parts_sold_total(self):
+        conn = db.Database().connect()
+        c = conn.cursor()
+        c.execute("SELECT SUM(sold_for) FROM sales WHERE item_type = 'Parts'")
+
+        total = c.fetchone()[0]
+        conn.close()
+
+        return total if total is not None else 0

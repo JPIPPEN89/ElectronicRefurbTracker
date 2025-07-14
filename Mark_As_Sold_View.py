@@ -36,7 +36,7 @@ class Mark_As_Sold_View(Toplevel):
         self.entSoldFor = ttk.Entry(frameRight, font=('Helvetica', 12), width=20)
         self.entSoldFor.grid(row=1, column=1, padx=10,pady=10)
 
-        self.lblPartsUsed = ttk.Label(frameRight, text="Parts Used (Ent ID):").grid(row=2, column=0, padx=10, pady=10)
+        self.lblPartsUsed = ttk.Label(frameRight, text="Parts Used (Ent ID or Type 'None'):").grid(row=2, column=0, padx=10, pady=10)
         self.entPartsUsed = ttk.Entry(frameRight, font=('Helvetica', 12), width=20)
         self.entPartsUsed.grid(row=2, column=1, padx=10, pady=10)
 
@@ -45,6 +45,7 @@ class Mark_As_Sold_View(Toplevel):
         self.btnShowParts = ttk.Button(frameRight, text="Show Parts",
                                  command=lambda: self.Parts_Display())
         self.btnShowParts.grid(row=7, column=0, padx=10, pady=10)
+
 
         # Mark as sold button
         self.btnSold = ttk.Button(frameRight, text="Done",
@@ -76,13 +77,13 @@ class Mark_As_Sold_View(Toplevel):
             self.tboxData.insert(tk.END, "No sales found.\n")
             return
 
-        header = f"{'ID':<3} {'Brand':<10} {'Model':<20} {'Cost':<7} {'Quantity':<8} {'Parts Used':<25} {'Sold':<5} {'Date Added'}\n"
+        header = f"{'ID':<3} {'Item Type':<15} {'Brand':<10} {'Model':<20} {'Cost':<7} {'Quantity':<8} {'Parts Used':<25} {'Sold':<5} {'Date Added'}\n"
         self.tboxData.insert(tk.END, header)
         self.tboxData.insert(tk.END, "-" * 100 + "\n")
 
         for row in rows:
             id, item_type, brand, model, sold_for, parts_used, total_cost, total_profit, quantity, sale_date, sold = row
-            formatted = (f"{id:<3} {brand:<10} {model:<20} ${sold_for:<6.2f} "
+            formatted = (f"{id:<3} {item_type:<15} {brand:<10} {model:<20} ${sold_for:<6.2f} "
                          f"{parts_used:<25} {total_cost:<6.2f} {total_profit:<6.2f} {quantity:<8} {sale_date}\n")
             self.tboxData.insert(tk.END, formatted)
 

@@ -12,10 +12,13 @@ import main_controller as mc
 #### Quantity needs added to each Entry ################################################ DONE----------
 #### Create Mark as sold and Parts used Functionality ################################## WORKING -- NEEDS TWEAKING WHEN REFACTORING
 #### CREATE Delete and update functionality ############################################
-#### Create Profit Tracker Functionality ###############################################
+#### ADD parts sold functionality ###################################################### DONE----------
+#### Create Profit Tracker Functionality ###############################################    DONE-------
+#### In sold_view make IF NO PARTS ENTERED NONE ########################################
 #### Create Sold Items View ############################################################
 #### Create better ID system ###########################################################
 #### Add ALL ITEMS functionality #######################################################
+#### Notes and Add Notes Functionality #################################################
 #### EXCEPTION HANDLING ################################################################
 #### REFACTOR CODE #####################################################################
 ########################################################################################
