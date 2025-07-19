@@ -4,16 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="997f9587-dc75-4d1c-a298-751b0eca7356" name="Changes" comment="Mark_As_Sold is working, will need to come back and tweak it when refactoring the code">
+    <list default="true" id="997f9587-dc75-4d1c-a298-751b0eca7356" name="Changes" comment="Finished up the beta version of my profit tracker">
+      <change afterPath="$PROJECT_DIR$/Base_Inventory_Controller.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Base_Inventory_View.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DB_Migrations.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Other_Electronics_Controller.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Other_Electronics_View.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Laptop_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Laptop_Controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Laptop_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Laptop_View.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Mark_As_Sold_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mark_As_Sold_Controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Mark_As_Sold_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mark_As_Sold_View.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Parts_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Parts_Controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Phone_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Phone_Controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Profit_Report_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Profit_Report_Controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Profit_Report_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Profit_Report_View.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tools_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tools_Controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Phones_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Phones_View.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_controller.py" afterDir="false" />
@@ -49,6 +53,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.DB_Migrations.executor&quot;: &quot;Run&quot;,
     &quot;Python.Main_Controller.executor&quot;: &quot;Run&quot;,
     &quot;Python.Phones_View.executor&quot;: &quot;Run&quot;,
     &quot;Python.Sold_View.executor&quot;: &quot;Run&quot;,
@@ -63,6 +68,58 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\JOSHP\PycharmProjects\ElectronicRefurbTracker" />
     </key>
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="DB_Migrations" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ElectronicRefurbTracker" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DB_Migrations.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="ElectronicRefurbTracker" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.DB_Migrations" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -127,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749732648807</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Finished up the beta version of my profit tracker">
+      <option name="closed" value="true" />
+      <created>1752469003439</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1752469003439</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -137,6 +202,7 @@
     <MESSAGE value="Working on the mark_as_sold functionality" />
     <MESSAGE value="still working out bugs for mark_as_sold function." />
     <MESSAGE value="Mark_As_Sold is working, will need to come back and tweak it when refactoring the code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mark_As_Sold is working, will need to come back and tweak it when refactoring the code" />
+    <MESSAGE value="Finished up the beta version of my profit tracker" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished up the beta version of my profit tracker" />
   </component>
 </project>

@@ -14,7 +14,8 @@ class LaptopDB(Database):
         conn = sqlite3.connect("refurb.db")
         c = conn.cursor()
         # Laptops table
-
+        # c.execute('''DROP TABLE IF EXISTS laptops''')
+        # conn.commit()
         c.execute('''
             CREATE TABLE IF NOT EXISTS laptops (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -24,7 +25,10 @@ class LaptopDB(Database):
                 quantity INTEGER,
                 bad_parts TEXT,
                 purchase_date TEXT DEFAULT CURRENT_TIMESTAMP,
-                sold INTEGER DEFAULT 0
+                disassembled INTEGER DEFAULT 0,
+                sold INTEGER DEFAULT 0,
+                fully_functional DEFAULT 0,
+                notes TEXT
             )
         ''')
         conn.commit()
@@ -37,7 +41,8 @@ class PhonesDB(Database):
     def create_table(self):
         conn = sqlite3.connect("refurb.db")
         c = conn.cursor()
-
+        # c.execute('''DROP TABLE IF EXISTS phones''')
+        # conn.commit()
         # Phones table
         c.execute('''
             CREATE TABLE IF NOT EXISTS phones (
@@ -48,7 +53,10 @@ class PhonesDB(Database):
                 bad_parts TEXT,
                 quantity INTEGER,
                 purchase_date TEXT DEFAULT CURRENT_TIMESTAMP,
-                sold INTEGER DEFAULT 0
+                disassembled INTEGER DEFAULT 0,
+                sold INTEGER DEFAULT 0,
+                fully_functional DEFAULT 0,
+                notes TEXT
             )
         ''')
 
@@ -66,7 +74,8 @@ class PartsDB(Database):
     def create_table(self):
         conn = sqlite3.connect("refurb.db")
         c = conn.cursor()
-
+        # c.execute('''DROP TABLE IF EXISTS parts''')
+        # conn.commit()
 
         # Parts table
         c.execute('''
@@ -78,7 +87,9 @@ class PartsDB(Database):
                 cost REAL,
                 quantity INTEGER,
                 used_part INTEGER DEFAULT 0,
-                purchase_date TEXT DEFAULT CURRENT_TIMESTAMP
+                purchase_date TEXT DEFAULT CURRENT_TIMESTAMP,
+                fully_functional DEFAULT 0,
+                notes TEXT
             )
         ''')
 
@@ -114,6 +125,8 @@ class SalesDB(Database):
         conn = self.connect()
         c = conn.cursor()
 
+        # c.execute('''DROP TABLE IF EXISTS sales''')
+        # conn.commit()
 
         c.execute('''
             CREATE TABLE IF NOT EXISTS sales (
@@ -128,10 +141,48 @@ class SalesDB(Database):
                 total_cost REAL NOT NULL,
                 total_profit REAL NOT NULL,
                 quantity INTEGER,
-                sale_date TEXT DEFAULT CURRENT_TIMESTAMP
+                sale_date TEXT DEFAULT CURRENT_TIMESTAMP,
+                notes
             )
         ''')
 
         conn.commit()
         conn.close()
 
+class Schema_Version(Database):
+    def create_table(self):
+        conn = self.connect()
+        c = conn.cursor()
+
+        c.execute('''CREATE TABLE IF NOT EXISTS schema_version (
+                        version INTEGER
+                    )''')
+        conn.commit()
+        conn.close()
+
+
+class Other_Electronics(Database):
+    def create_table(self):
+        conn = sqlite3.connect("refurb.db")
+        c = conn.cursor()
+        # c.execute('''DROP TABLE IF EXISTS laptops''')
+        # conn.commit()
+        # Phones table
+        c.execute('''
+                    CREATE TABLE IF NOT EXISTS other_electronics (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        brand TEXT,
+                        model TEXT,
+                        cost REAL,
+                        bad_parts TEXT,
+                        quantity INTEGER,
+                        purchase_date TEXT DEFAULT CURRENT_TIMESTAMP,
+                        disassembled INTEGER DEFAULT 0,
+                        sold INTEGER DEFAULT 0,
+                        fully_functional DEFAULT 0,
+                        notes TEXT
+                    )
+                ''')
+
+        conn.commit()
+        conn.close()

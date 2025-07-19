@@ -1,44 +1,38 @@
 import database as db
-import tkinter as tk
-from tkinter import *
-from tkinter import ttk
-import Laptop_View as lv
 
-
-
-class LaptopController:
+class Other_Electronics_Controller:
     def __init__(self):
-        db.LaptopDB().create_table()
+        db.Other_Electronics().create_table()
 
     def add_item(self, brand, model, cost, quantity, bad_parts):
         conn = db.Database().connect()
         c = conn.cursor()
-        c.execute('''INSERT INTO laptops (brand, model, cost, quantity, bad_parts)
+        c.execute('''INSERT INTO other_electronics (brand, model, cost, quantity, bad_parts)
                    VALUES (?,?,?,?,?)    
            ''', (brand, model, cost, quantity, bad_parts))
         conn.commit()
         conn.close()
 
-    def mark_as_sold(self, laptop_id):
+    def mark_as_sold(self, id):
         conn = db.Database().connect()
         c = conn.cursor()
         c.execute('''
-                   UPDATE laptops
+                   UPDATE other_electronics
                    SET sold = 1
                    WHERE id = ?
-               ''', (laptop_id))
+               ''', (id))
         conn.commit()
 
         conn.close()
 
 
 
-    def item_sold_info(self, laptop_id):
+    def item_sold_info(self, id):
         conn = db.Database().connect()
         c = conn.cursor()
 
-        type = 'Laptop'
-        c.execute('''SELECT * FROM laptops WHERE id = ?''', (laptop_id,))
+        type = 'Other'
+        c.execute('''SELECT * FROM other_electronics WHERE id = ?''', (id,))
         result = c.fetchone()
         conn.close()
 
@@ -50,21 +44,20 @@ class LaptopController:
     def get_all_items(self):
         conn = db.Database().connect()
         c = conn.cursor()
-        c.execute("SELECT * FROM laptops")
+        c.execute("SELECT * FROM other_electronics")
         rows = c.fetchall()
         conn.close()
 
         return rows
 
-    def laptop_cost(self):
+    def other_cost(self):
         conn = db.Database().connect()
         c = conn.cursor()
-        c.execute("SELECT SUM(cost) FROM laptops")
-
+        c.execute("SELECT SUM(cost) FROM other_electronics")
         total_cost = c.fetchone()[0]
+
         if total_cost is None:
             return 0
-
         conn.close()
         return total_cost
 
@@ -72,13 +65,11 @@ class LaptopController:
         conn = db.Database().connect()
         c = conn.cursor()
         c.execute('''
-                   UPDATE laptops
+                   UPDATE other_electronics
                    SET disassembled = 1
                    WHERE id = ?
                ''', (id))
         conn.commit()
 
         conn.close()
-
-
 

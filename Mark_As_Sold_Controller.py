@@ -77,6 +77,9 @@ class Sold_Controller:
 
         c.execute("SELECT SUM(sold_for) FROM sales")
         total = c.fetchone()[0]
+
+        if total is None:
+            return 0
         conn.close()
 
         return total

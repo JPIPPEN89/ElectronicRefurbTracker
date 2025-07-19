@@ -17,6 +17,7 @@ class Mark_As_Sold_View(Toplevel):
         id, brand, model, cost, parts_used, quantity, purchase_date, sold = result
 
         Toplevel.__init__(self)
+        self.updateDisplay()
         self.controller = sc.Sold_Controller()
 
         self.title("Sales")

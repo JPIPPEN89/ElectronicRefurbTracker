@@ -46,5 +46,8 @@ class Parts_Controller:
         c.execute("SELECT SUM(cost) FROM parts")
         total_cost = c.fetchone()[0]
 
+        if total_cost is None:
+            return 0
+
         conn.close()
         return total_cost

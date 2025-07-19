@@ -17,7 +17,7 @@ class Phone_Controller:
         conn.commit()
         conn.close()
 
-    #####NEEDS FUNCTIONALITY FOR SOLD#############
+
     def mark_as_sold(self, phone_id):
         conn = db.Database().connect()
         c = conn.cursor()
@@ -28,7 +28,7 @@ class Phone_Controller:
         conn.close()
 
 ################FIXING#####################
-    def phone_sold_info(self, phone_id):
+    def item_sold_info(self, phone_id):
         conn = db.Database().connect()
         c = conn.cursor()
 
@@ -43,7 +43,7 @@ class Phone_Controller:
 
 
 
-    def get_all_phones(self):
+    def get_all_items(self):
         conn = db.Database().connect()
         c = conn.cursor()
         c.execute("SELECT * FROM phones")
@@ -62,4 +62,19 @@ class Phone_Controller:
         total_cost = c.fetchone()[0]
         conn.close()
 
+        if total_cost is None:
+            return 0
+
         return total_cost
+
+    def disassembled_item(self,id):
+        conn = db.Database().connect()
+        c = conn.cursor()
+        c.execute('''
+                   UPDATE phones
+                   SET disassembled = 1
+                   WHERE id = ?
+               ''', (id))
+        conn.commit()
+
+        conn.close()
