@@ -14,10 +14,11 @@ class Mark_As_Sold_View(Toplevel):
     def __init__(self, rootWindow, item_type, result):
 
         self.item_type = item_type
-        id, brand, model, cost, parts_used, quantity, purchase_date, sold = result
+        (id, custom_id, brand, model, cost, parts_used, quantity, ram, ssd,
+        purchase_date, disassembled, sold, fully_functional, notes) = result
 
         Toplevel.__init__(self)
-        self.updateDisplay()
+        #self.updateDisplay()
         self.controller = sc.Sold_Controller()
 
         self.title("Sales")
@@ -32,6 +33,7 @@ class Mark_As_Sold_View(Toplevel):
         self.lblSoldList = ttk.Label(frameLeft, text="Sales List").grid(row=1, column=0, padx=10, pady=0)
         self.tboxData = tk.Text(frameLeft, width=50, height=40)
         self.tboxData.grid(row=2, column=0)
+
 
         self.lblSoldFor = ttk.Label(frameRight, text="Sold For:").grid(row=1, column=0, padx=10, pady=10)
         self.entSoldFor = ttk.Entry(frameRight, font=('Helvetica', 12), width=20)
@@ -78,13 +80,17 @@ class Mark_As_Sold_View(Toplevel):
             self.tboxData.insert(tk.END, "No sales found.\n")
             return
 
-        header = f"{'ID':<3} {'Item Type':<15} {'Brand':<10} {'Model':<20} {'Cost':<7} {'Quantity':<8} {'Parts Used':<25} {'Sold':<5} {'Date Added'}\n"
+        header = (f"{'ID':<3} {'Item Type':<15} {'Brand':<10} {'Model':<20} {'Cost':<7} "
+                  f"{'Quantity':<8} {'Parts Used':<25} {'Sold':<5} {'Date Added'}\n")
+
         self.tboxData.insert(tk.END, header)
         self.tboxData.insert(tk.END, "-" * 100 + "\n")
 
         for row in rows:
-            id, item_type, brand, model, sold_for, parts_used, total_cost, total_profit, quantity, sale_date, sold = row
-            formatted = (f"{id:<3} {item_type:<15} {brand:<10} {model:<20} ${sold_for:<6.2f} "
+            (id, custom_id, brand, model, sold_for, parts_used, parts_cost,
+             total_cost, total_profit, quantity, sale_date, notes) = row
+
+            formatted = (f"{id:<3} {self.item_type:<15} {brand:<10} {model:<20} ${sold_for:<6.2f} "
                          f"{parts_used:<25} {total_cost:<6.2f} {total_profit:<6.2f} {quantity:<8} {sale_date}\n")
             self.tboxData.insert(tk.END, formatted)
 
@@ -101,7 +107,7 @@ class Mark_As_Sold_View(Toplevel):
         self.tboxData.insert(tk.END, "-" * 100 + "\n")
 
         for row in rows:
-            id, brand, model, part_type, cost, quantity, used_part, purchase_date, = row
+            id, custom_id, brand, model, part_type, cost, quantity, used_part, purchase_date, notes = row
             formatted = f"{id:<3} {brand:<10} {model:<20} {part_type:<25} ${cost:<6.2f} {quantity:<8} {used_part:<5} {purchase_date}\n"
             self.tboxData.insert(tk.END, formatted)
 

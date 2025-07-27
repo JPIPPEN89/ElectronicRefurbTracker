@@ -50,20 +50,34 @@ class Base_Inventory_View(Toplevel):
         self.entQuantity = ttk.Entry(frameRight, font=('Helvetica', 12), width=20)
         self.entQuantity.grid(row=5, column=1, padx=10, pady=10)
 
-        self.lblID = ttk.Label(frameRight, text="ID (Used for Updates):").grid(row=6, column=0, padx=10, pady=0)
+
+        self.lblRAM = ttk.Label(frameRight, text="RAM:").grid(row=6, column=0, padx=10, pady=0)
+        self.entRAM = ttk.Entry(frameRight, font=('Helvetica', 12), width=20)
+        self.entRAM.grid(row=6, column=1, padx=10, pady=10)
+
+        self.lblMemory = ttk.Label(frameRight, text="Memory:").grid(row=7, column=0, padx=10, pady=0)
+        self.entMemory = ttk.Entry(frameRight, font=('Helvetica', 12), width=20)
+        self.entMemory.grid(row=7, column=1, padx=10, pady=10)
+
+        self.lblNotes = ttk.Label(frameRight, text="Notes:").grid(row=8, column=0, padx=10, pady=0)
+        self.entNotes = ttk.Entry(frameRight, font=('Helvetica', 12), width=20)
+        self.entNotes.grid(row=8, column=1, padx=10, pady=10)
+
+        self.lblID = ttk.Label(frameRight, text="ID (Used for Updates):").grid(row=9, column=0, padx=10, pady=0)
         self.entID = ttk.Entry(frameRight, font=('Helvetica', 12), width=20)
-        self.entID.grid(row=6, column=1, padx=10, pady=10)
+        self.entID.grid(row=9, column=1, padx=10, pady=10)
 
         # Add Button
         self.btnAdd = ttk.Button(frameRight, text=f"Add {item_type}",
                                  command=lambda: [
                                      self.controller.add_item(self.entBrand.get(), self.entModel.get(),
                                                               self.entCost.get(),
-                                                              self.entQuantity.get(), self.entBadParts.get(),
+                                                              self.entQuantity.get(), self.entBadParts.get(), self.entRAM.get(),
+                                                              self.entMemory.get(), self.entNotes.get()
                                                               ),
                                      self.updateDisplay(item_type)
                                  ])
-        self.btnAdd.grid(row=7, column=0, padx=10, pady=10)
+        self.btnAdd.grid(row=10, column=0, padx=10, pady=10)
 
         # Mark as sold button
         self.btnSold = ttk.Button(frameRight, text="Mark as Sold",
@@ -73,26 +87,26 @@ class Base_Inventory_View(Toplevel):
                                                              self.controller.item_sold_info(self.entID.get())),
                                   ])
 
-        self.btnSold.grid(row=7, column=1, padx=10, pady=10)
+        self.btnSold.grid(row=10, column=1, padx=10, pady=10)
 
         # Display all phones button
         self.btnDisplay = ttk.Button(frameRight, text="Display All", command=lambda: self.updateDisplay(item_type))
-        self.btnDisplay.grid(row=8, column=0, padx=10, pady=10)
+        self.btnDisplay.grid(row=11, column=0, padx=10, pady=10)
 
         # Clear the data button
         self.btnClear = ttk.Button(frameRight, text="Clear the Data",
                                    command=lambda: [self.tboxData.delete("1.0", tk.END)])
-        self.btnClear.grid(row=8, column=1, padx=10, pady=1)
+        self.btnClear.grid(row=11, column=1, padx=10, pady=1)
 
         self.lblInstruction = ttk.Label(frameRight, text="Enter ID above to delete or search")
-        self.lblInstruction.grid(row=10, column=0, columnspan=2, padx=0, pady=0)
+        self.lblInstruction.grid(row=12, column=0, columnspan=2, padx=0, pady=0)
 
-        # Delete Button NEEDS FUNCTIONALITY
+        # Delete Button
         self.btnDelete = ttk.Button(frameRight, text="Delete",
                                     command=lambda: [
                                         self.controller.delete(self.entID.get()),
                                         self.updateDisplay(item_type)])
-        self.btnDelete.grid(row=11, column=0, pady=10, padx=10)
+        self.btnDelete.grid(row=12, column=1, pady=10, padx=10)
 
         # Search Button NEEDS FUNCTIONALITY
         self.btnSearch = ttk.Button(frameRight, text="Search",
@@ -100,12 +114,12 @@ class Base_Inventory_View(Toplevel):
                                         self.tboxData.delete("1.0", tk.END),
                                         self.tboxData.insert(INSERT, self.controller.search(self.entSSN.get()))
                                     ])
-        self.btnSearch.grid(row=11, column=1, padx=10, pady=10)
+        self.btnSearch.grid(row=13, column=0, padx=10, pady=10)
         # View Methods
 
         self.btnDisassembled = ttk.Button(frameRight, text="Disassembled", command=lambda:
         [self.controller.disassembled_item(self.entID.get())])
-        self.btnDisassembled.grid(row=12, column=0, pady=10, padx=10)
+        self.btnDisassembled.grid(row=13, column=1, pady=10, padx=10)
 
     def updateDisplay(self,item_type):
         self.tboxData.delete("1.0", tk.END)
@@ -116,15 +130,15 @@ class Base_Inventory_View(Toplevel):
             return
 
         # Optional: add a header
-        header = (f"{'ID':<3} {'Brand':<10} {'Model':<20} {'Cost':<7} {'Quantity':<8} {'Bad Parts':<25} {'Date Added'} "
-                  f"{'Sold':<5} {'Fully Functional':<5}\n {'Notes'}")
+        header = (f"{'ID':<10} {'Brand':<10} {'Model':<20} \n{'Cost':<7} {'Quantity':<8} {'RAM':<5} {'SSD':<5}"
+                  f"\n{'Bad Parts':<25} {'Date Added'}\n {'Sold':<5} {'Fully Functional':<5}\n {'Notes'}")
         self.tboxData.insert(tk.END, header)
         self.tboxData.insert(tk.END, "-" * 100 + "\n")
 
         for row in rows:
-            id, brand, model, cost, parts_used, quantity, purchase_date, disassembled, sold, fully_functional, notes = row
-            formatted = (f"{id:<3} {brand:<10} {model:<20} ${cost:<6.2f} {parts_used:<25} {quantity:<8} {purchase_date}"
-                         f" {sold:<5} {fully_functional:<5}\n {notes}\n")
+            id, custom_id, brand, model, cost, quantity, parts_used, ram, ssd, purchase_date, disassembled, sold, fully_functional, notes = row
+            formatted = (f"{custom_id:<10} {brand:<10} {model:<20} \n${cost:<6.2f} {quantity:<11} {ram:<5} {ssd:<5} \n{parts_used:<25} {purchase_date}"
+                         f"\n {sold:<5} {fully_functional:<5}\n {notes}\n")
             self.tboxData.insert(tk.END, formatted)
 
 

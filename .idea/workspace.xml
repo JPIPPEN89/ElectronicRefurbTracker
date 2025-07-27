@@ -4,23 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="997f9587-dc75-4d1c-a298-751b0eca7356" name="Changes" comment="Finished up the beta version of my profit tracker">
-      <change afterPath="$PROJECT_DIR$/Base_Inventory_Controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Base_Inventory_View.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DB_Migrations.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Other_Electronics_Controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Other_Electronics_View.py" afterDir="false" />
+    <list default="true" id="997f9587-dc75-4d1c-a298-751b0eca7356" name="Changes" comment="Modularized the inventory view, created other electronics">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Base_Inventory_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Base_Inventory_Controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Base_Inventory_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Base_Inventory_View.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Laptop_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Laptop_Controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Laptop_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Laptop_View.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mark_As_Sold_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mark_As_Sold_Controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Mark_As_Sold_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mark_As_Sold_View.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Parts_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Parts_Controller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Other_Electronics_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Other_Electronics_Controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Phone_Controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/Phone_Controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Phones_View.py" beforeDir="false" afterPath="$PROJECT_DIR$/Phones_View.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_controller.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752469003439</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Modularized the inventory view, created other electronics">
+      <option name="closed" value="true" />
+      <created>1752946209823</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1752946209823</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -203,6 +204,7 @@
     <MESSAGE value="still working out bugs for mark_as_sold function." />
     <MESSAGE value="Mark_As_Sold is working, will need to come back and tweak it when refactoring the code" />
     <MESSAGE value="Finished up the beta version of my profit tracker" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished up the beta version of my profit tracker" />
+    <MESSAGE value="Modularized the inventory view, created other electronics" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modularized the inventory view, created other electronics" />
   </component>
 </project>

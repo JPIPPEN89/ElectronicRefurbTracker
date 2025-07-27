@@ -14,16 +14,19 @@ class LaptopDB(Database):
         conn = sqlite3.connect("refurb.db")
         c = conn.cursor()
         # Laptops table
-        # c.execute('''DROP TABLE IF EXISTS laptops''')
-        # conn.commit()
+        c.execute('''DROP TABLE IF EXISTS laptops''')
+        conn.commit()
         c.execute('''
             CREATE TABLE IF NOT EXISTS laptops (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
+                custom_id TEXT UNIQUE,
                 brand TEXT,
                 model TEXT,
                 cost REAL,
                 quantity INTEGER,
                 bad_parts TEXT,
+                ram INTEGER,
+                ssd INTEGER,
                 purchase_date TEXT DEFAULT CURRENT_TIMESTAMP,
                 disassembled INTEGER DEFAULT 0,
                 sold INTEGER DEFAULT 0,
@@ -41,17 +44,20 @@ class PhonesDB(Database):
     def create_table(self):
         conn = sqlite3.connect("refurb.db")
         c = conn.cursor()
-        # c.execute('''DROP TABLE IF EXISTS phones''')
-        # conn.commit()
+        c.execute('''DROP TABLE IF EXISTS phones''')
+        conn.commit()
         # Phones table
         c.execute('''
             CREATE TABLE IF NOT EXISTS phones (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
+                custom_id TEXT UNIQUE,
                 brand TEXT,
                 model TEXT,
                 cost REAL,
                 bad_parts TEXT,
                 quantity INTEGER,
+                ram INTEGER DEFAULT 4,
+                ssd INTEGER,
                 purchase_date TEXT DEFAULT CURRENT_TIMESTAMP,
                 disassembled INTEGER DEFAULT 0,
                 sold INTEGER DEFAULT 0,
@@ -81,6 +87,7 @@ class PartsDB(Database):
         c.execute('''
             CREATE TABLE IF NOT EXISTS parts (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
+                custom_id TEXT UNIQUE,
                 brand TEXT,
                 model TEXT,
                 part_type TEXT,
@@ -108,6 +115,7 @@ class ToolsDB(Database):
         c.execute('''
             CREATE TABLE IF NOT EXISTS tools (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
+                custom_id TEXT UNIQUE,
                 name TEXT NOT NULL,
                 cost REAL NOT NULL,
                 quantity INTEGER,
@@ -131,6 +139,7 @@ class SalesDB(Database):
         c.execute('''
             CREATE TABLE IF NOT EXISTS sales (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
+                custom_id TEXT UNIQUE,
                 item_type TEXT NOT NULL,       -- 'laptop' or 'phone'
                 item_brand TEXT NOT NULL,
                 item_model TEXT NOT NULL,
@@ -165,17 +174,20 @@ class Other_Electronics(Database):
     def create_table(self):
         conn = sqlite3.connect("refurb.db")
         c = conn.cursor()
-        # c.execute('''DROP TABLE IF EXISTS laptops''')
-        # conn.commit()
-        # Phones table
+        c.execute('''DROP TABLE IF EXISTS laptops''')
+        conn.commit()
+
         c.execute('''
                     CREATE TABLE IF NOT EXISTS other_electronics (
                         id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        custom_id TEXT UNIQUE,
                         brand TEXT,
                         model TEXT,
                         cost REAL,
                         bad_parts TEXT,
                         quantity INTEGER,
+                        ram INTEGER DEFAULT 0,
+                        ssd INTEGER DEFAULT 0,
                         purchase_date TEXT DEFAULT CURRENT_TIMESTAMP,
                         disassembled INTEGER DEFAULT 0,
                         sold INTEGER DEFAULT 0,
